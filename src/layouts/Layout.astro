@@ -10,7 +10,16 @@ const pathname = Astro.url.pathname
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="I'm Juan Manuel Sabanes and i'm a self-taught Software Developer. This is my web portfolio where i show you my skills like react js, my projects and more."
+    />
+    <meta
+      name="keywords"
+      content="Juan Manuel Sabanes, Software Developer, React.js, Frontend Developer, Web Development"
+    />
+    <link rel="canonical" href="https://jmsabanes.com" />
+    <meta name="robots" content="index, follow" />
     <title>Juan Manuel Sabanes</title>
   </head>
   <body>
@@ -24,13 +33,6 @@ const pathname = Astro.url.pathname
     font-family: 'Poppins';
     src: url('/fonts/Poppins-Bold.woff') format('woff');
     font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Poppins';
-    src: url('/fonts/Poppins-Light.woff') format('woff');
-    font-weight: 300;
     font-style: normal;
     font-display: swap;
   }

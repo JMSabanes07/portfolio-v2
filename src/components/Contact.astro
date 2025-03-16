@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon/components'
+import { PageSection } from './index.astro'
+---
+
+<PageSection sectionId="contact" title="Get In Touch" icon="message">
+  <h3>Got a project in mind? Let's talk!</h3>
+  <div class="links">
+    <a href="https://github.com/JMSabanes07" target="_blank">
+      <Icon name="github" />
+    </a>
+    <a href="https://www.linkedin.com/in/juan-manuel-sabanes/" target="_blank">
+      <Icon name="linkedin" />
+    </a>
+    <a href="https://instagram.com/jmsabanes" target="_blank">
+      <Icon name="instagram" />
+    </a>
+  </div>
+</PageSection>
+
+<style>
+  h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .links a [data-icon] {
+    font-size: 2.7rem;
+    color: var(--text-color);
+    transition:
+      color 0.1s ease,
+      filter 0.1s ease;
+    filter: drop-shadow(0px 0px 0px var(--primary-color));
+  }
+  .links a [data-icon]:hover {
+    color: var(--primary-color);
+    filter: drop-shadow(0 0 10px var(--primary-color));
+  }
+</style>

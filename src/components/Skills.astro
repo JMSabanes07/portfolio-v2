@@ -1,0 +1,82 @@
+---
+import PageSection from './PageSection.astro'
+import { Icon } from 'astro-icon/components'
+
+const tools = [
+  'html',
+  'css',
+  'javascript',
+  'typescript',
+  'node',
+  'astro',
+  'preact',
+  'next',
+  'react',
+  'react native',
+  'expo',
+  'supabase',
+  'pocketbase',
+]
+---
+
+<PageSection title="Some Tools I Use" icon="react">
+  <div class="container">
+    <div class="icons-container">
+      {
+        tools.map(tool => (
+          <div class="icon">
+            <Icon name={tool} /> {tool}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</PageSection>
+
+<style>
+  .container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 900px;
+  }
+
+  @media (max-width: 1000px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    background-color: var(--card-color);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.2s ease;
+    box-shadow: 0 0 0px var(--primary-color);
+  }
+
+  .icon:hover {
+    /* outline: 2px solid var(--primary-color); */
+    box-shadow: 0 0 10px var(--primary-color);
+  }
+
+  .icon [data-icon] {
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .icon:hover [data-icon] {
+    color: var(--primary-color);
+  }
+</style>

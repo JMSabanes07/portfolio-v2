@@ -1,22 +1,121 @@
+---
+import { Navigation } from '../components/index.astro'
+
+const pathname = Astro.url.pathname
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Juan Manuel Sabanes</title>
+  </head>
+  <body>
+    {pathname === '/' ? <Navigation /> : null}
+    <slot />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --primary-color: rgb(88, 255, 213);
+    --text-color: rgb(241, 241, 241);
+    --text-inverted-color: rgb(0, 0, 0);
+    --card-color: rgba(0, 0, 0, 0.5);
+    --background-color: rgb(19, 17, 26);
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    font-weight: 200;
+  }
+
+  a,
+  div,
+  span,
+  button,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--text-color);
+  }
+
+  *::selection {
+    background-color: var(--primary-color);
+    color: var(--text-inverted-color);
+  }
+
+  html,
+  body {
+    width: 100%;
+  }
+  body {
+    background-color: var(--background-color);
+  }
+
+  button {
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  @keyframes breath {
+    0% {
+      scale: 1;
+    }
+    50% {
+      scale: 1.2;
+    }
+    100% {
+      scale: 1;
+    }
+  }
+  @keyframes rotate {
+    0% {
+      rotate: 0deg;
+    }
+    50% {
+      rotate: 15deg;
+    }
+    100% {
+      rotate: 0deg;
+    }
+  }
 </style>

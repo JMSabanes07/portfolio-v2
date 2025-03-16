@@ -1,0 +1,33 @@
+---
+import { PageSection } from './index.astro'
+---
+
+<PageSection sectionId="about" title="About Me" icon="user">
+  <div class="paragraphs">
+    <p>
+      Hi! I'm <strong>Juan Manuel Sabanes</strong>, a frontend developer with experience in building
+      web and Android applications using technologies like ReactJS, React Native, and Next.js. I
+      specialize in functional and efficient development, focusing on creating robust and scalable
+      solutions while leaving the design work to the experts.
+    </p>
+    <p>
+      I'm passionate about solving problems and see programming as a way to combine creativity and
+      logic to bring great ideas to life. My goal is to be part of unique creations that make a
+      difference in the world.
+    </p>
+    <p>
+      In addition, I’m a huge fan of video games and hope to one day take my passion for gaming to
+      the next level by developing games of my own.
+    </p>
+  </div>
+</PageSection>
+
+<style>
+  .paragraphs {
+    display: grid;
+    gap: 0.5rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+</style>

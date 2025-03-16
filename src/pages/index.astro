@@ -1,11 +1,102 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
+import { Hero, Projects, About, Skills, Contact, Footer } from '../components/index.astro'
+import background from '../assets/background.svg'
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <div class="container">
+    <div class="bg-container">
+      <img class="background" src={background.src} alt="" fetchpriority="high" />
+      <img class="background2" src={background.src} alt="" fetchpriority="high" />
+    </div>
+    <div class="content">
+      <Hero />
+      <main>
+        <Projects />
+        <About />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  </div>
+  <script src="/scripts/onMountScripts.js" is:inline></script>
 </Layout>
+
+<style>
+  main {
+    display: grid;
+    max-width: 1300px;
+    gap: 4rem;
+  }
+
+  .container {
+    position: relative;
+    margin-top: calc(-80px - 4rem);
+    overflow: hidden;
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      margin-top: calc(-80px - 7.5rem);
+    }
+  }
+
+  .content {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    gap: 7rem;
+    backdrop-filter: blur(100px);
+    padding-top: 2rem;
+  }
+
+  .bg-container {
+    display: grid;
+    align-content: space-between;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 110%;
+    filter: blur(200px);
+    opacity: 0.2;
+  }
+
+  .background,
+  .background2 {
+    animation:
+      breath 5s ease infinite alternate,
+      rotate 10s linear infinite alternate;
+  }
+  .background2 {
+    rotate: 180deg;
+  }
+
+  @keyframes breath {
+    0% {
+      scale: 1;
+    }
+    50% {
+      scale: 1.2;
+    }
+    100% {
+      scale: 1;
+    }
+  }
+  @keyframes rotate {
+    0% {
+      rotate: -25deg;
+    }
+    50% {
+      rotate: 25deg;
+    }
+    100% {
+      rotate: -25deg;
+    }
+  }
+</style>

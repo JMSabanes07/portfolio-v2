@@ -1,0 +1,212 @@
+---
+import MagneticDiv from './MagneticDiv'
+import { Icon } from 'astro-icon/components'
+---
+
+<header section-id="home" class="content">
+  <div class="hero">
+    <div class="title-container">
+      <span class="hi">Hi! 👋🏻</span>
+      <h1 class="title">
+        I'm <span class="name">Juan Manuel Sabanes</span>
+      </h1>
+      <h2 class="subtitle">
+        Freelance web and mobile developer, currently working as a <strong
+          >Frontend Developer</strong
+        >
+        specializing in <strong>React and React Native</strong>.
+      </h2>
+      <div class="links">
+        <a href="https://github.com/JMSabanes07" target="_blank">
+          <Icon name="github" />
+        </a>
+        <a href="https://www.linkedin.com/in/juan-manuel-sabanes/" target="_blank">
+          <Icon name="linkedin" />
+        </a>
+        <a href="https://instagram.com/jmsabanes" target="_blank">
+          <Icon name="instagram" />
+        </a>
+      </div>
+    </div>
+    <div class="image-container">
+      <MagneticDiv strength={5} repel={true} speed={0.5} client:load>
+        <div class="avatar-background"></div>
+      </MagneticDiv>
+      <MagneticDiv strength={10} repel={false} speed={0.5} client:load>
+        <img src="/avatar2.png" alt="profile" />
+      </MagneticDiv>
+    </div>
+  </div>
+  <button class="arrow" onclick="scrollToAnchor('projects')">
+    <Icon name="arrow" />
+  </button>
+</header>
+
+<style lang="css">
+  .content {
+    display: grid;
+    grid-template-rows: 1fr;
+    align-items: center;
+    max-width: 1300px;
+    height: calc(100vh - 4rem);
+    position: relative;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    grid-template-areas: 'hero-left hero-right';
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .arrow {
+    display: flex;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    translate: -50% 0;
+    rotate: 180deg;
+    cursor: pointer;
+    animation: breath 2s ease-in-out infinite;
+  }
+  .arrow [data-icon] {
+    font-size: 3rem;
+    transition:
+      color 0.2s ease,
+      filter 0.2s ease;
+  }
+  .arrow:hover [data-icon] {
+    color: var(--primary-color);
+    filter: drop-shadow(0 0 10px var(--primary-color));
+  }
+
+  .title-container {
+    grid-area: hero-left;
+  }
+
+  .title-container .hi {
+    font-size: 1.7rem;
+  }
+
+  .title-container .title,
+  .title-container .name {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  .title-container .subtitle {
+    font-size: 1.3rem;
+  }
+
+  .title-container .subtitle strong {
+    font-weight: 700;
+  }
+
+  .title-container .links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .title-container .links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title-container .links a [data-icon] {
+    font-size: 2.7rem;
+    color: var(--text-color);
+    transition:
+      color 0.1s ease,
+      filter 0.1s ease;
+    filter: drop-shadow(0px 0px 0px var(--primary-color));
+  }
+  .title-container .links a [data-icon]:hover {
+    color: var(--primary-color);
+    filter: drop-shadow(0 0 10px var(--primary-color));
+  }
+
+  .image-container {
+    grid-area: hero-right;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 1rem;
+    margin-left: 3.8rem;
+    height: 300px;
+  }
+
+  .image-container .avatar-background {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    rotate: 45deg;
+  }
+
+  .image-container img {
+    width: 300px;
+  }
+
+  @media (max-width: 1000px) {
+    .hero {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'hero-left' 'hero-right';
+    }
+    .hero .image-container {
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding-top: 6rem;
+    }
+    .title-container .hi {
+      font-size: 1.4rem;
+    }
+
+    .title-container .title,
+    .title-container .name {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .title-container .subtitle {
+      font-size: 1.2rem;
+    }
+  }
+  @media (max-width: 450px) {
+    .title-container .hi {
+      font-size: 1.3rem;
+    }
+
+    .title-container .title,
+    .title-container .name {
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    .title-container .subtitle {
+      font-size: 1rem;
+    }
+  }
+
+  @keyframes breath {
+    0% {
+      scale: 1;
+    }
+    50% {
+      scale: 1.1;
+    }
+    100% {
+      scale: 1;
+    }
+  }
+</style>

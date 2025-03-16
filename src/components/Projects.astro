@@ -1,0 +1,155 @@
+---
+import { Icon } from 'astro-icon/components'
+import PageSection from './PageSection.astro'
+import type { Project } from '../types/projects'
+import { pb } from '../lib/pocketbase'
+
+let projects: Project[] = []
+try {
+  projects = await pb.collection('projects').getFullList<Project>({
+    sort: '-year',
+  })
+} catch (error) {
+  console.log(error)
+}
+---
+
+<div section-id="projects" style={{ marginTop: '-6rem' }}>
+  <PageSection title="My work" icon="projects">
+    <div class="projects-container">
+      {
+        projects.map(project => (
+          <a href={project.go_to} target="_blank">
+            <article class="card">
+              <img
+                src={`http://127.0.0.1:8090/api/files/${project.collectionName}/${project.id}/${project.thumbnail}`}
+              />
+              <div class="info">
+                <h1>
+                  {project.name} <span class="year">{project.year}</span>
+                </h1>
+                <p>{project.short_desc}</p>
+                <div class="icons">
+                  {project.icons.map(icon => (
+                    <div class="icon">
+                      <Icon name={icon} />
+                      <span>{icon}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </article>
+          </a>
+        ))
+      }
+    </div>
+  </PageSection>
+</div>
+
+<style>
+  #projects {
+    grid-area: body;
+  }
+
+  .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .projects-container a {
+    display: flex;
+    text-decoration: none;
+    width: 602px;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    grid-template-rows: 170px;
+    align-items: flex-start;
+    width: 100%;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--card-color);
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (max-width: 700px) {
+    .projects-container a {
+      width: 100%;
+    }
+
+    .card {
+      grid-template-columns: 1fr;
+      grid-template-rows: 170px auto;
+    }
+  }
+
+  .card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--primary-color);
+    filter: drop-shadow(0 0 10px var(--primary-color));
+    transition: width 0.2s ease;
+  }
+
+  .card:hover::after {
+    width: 100%;
+  }
+
+  .card .info {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    gap: 0.5rem;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  .card h1 {
+    font-size: 1.3rem;
+  }
+  .card h1 .year {
+    font-size: 0.8rem;
+    color: var(--text-color);
+  }
+  .card p {
+    font-size: 1rem;
+  }
+
+  .card .icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .card .icons .icon {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .card .icons .icon span {
+    line-height: 0.9;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+  }
+  .card .icons .icon [data-icon] {
+    font-size: 1.2rem;
+  }
+</style>

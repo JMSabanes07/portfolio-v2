@@ -78,17 +78,6 @@ try {
     overflow: hidden;
   }
 
-  @media (max-width: 700px) {
-    .projects-container a {
-      width: 100%;
-    }
-
-    .card {
-      grid-template-columns: 1fr;
-      grid-template-rows: 170px auto;
-    }
-  }
-
   .card::after {
     content: '';
     position: absolute;
@@ -121,6 +110,22 @@ try {
     /* border-radius: 0.5rem; */
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .projects-container a {
+      width: 100%;
+    }
+
+    .card {
+      grid-template-columns: 1fr;
+      grid-template-rows: 234px auto;
+    }
+
+    .card .info {
+      padding: 2rem;
+      gap: 1rem;
+    }
   }
 
   .card h1 {

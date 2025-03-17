@@ -67,12 +67,11 @@ try {
 
   .card {
     display: grid;
-    grid-template-columns: 0.5fr 2fr;
-    grid-template-rows: 170px;
+    grid-template-columns: 0.7fr 2fr;
+    grid-template-rows: 234px;
     align-items: flex-start;
     width: 100%;
-    gap: 2rem;
-    padding: 2rem;
+    /* padding: 2rem;  */
     border-radius: 0.5rem;
     background-color: var(--card-color);
     position: relative;
@@ -112,13 +111,16 @@ try {
     grid-template-rows: auto 1fr auto;
     height: 100%;
     gap: 0.5rem;
+    padding: 1rem 2rem;
   }
 
   .card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 0.5rem;
+    /* border-radius: 0.5rem; */
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
   }
 
   .card h1 {

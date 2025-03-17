@@ -22,7 +22,7 @@ try {
           <a href={project.go_to} target="_blank">
             <article class="card">
               <img
-                src={`http://127.0.0.1:8090/api/files/${project.collectionName}/${project.id}/${project.thumbnail}`}
+                src={`${import.meta.env.PUBLIC_POCKETBASE_IMAGES_URL}/${project.collectionName}/${project.id}/${project.thumbnail}`}
               />
               <div class="info">
                 <h1>

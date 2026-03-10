@@ -151,20 +151,39 @@ try {
     font-size: 1.2rem;
   }
 
-  :global(.modal-overlay) {
+:global(.modal-overlay) {
     position: fixed;
     inset: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(10px);
-    display: grid;
+    display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding-top: 10vh;
     z-index: 9999;
     overflow-y: auto;
     animation: fadeIn 0.2s ease;
+  }
+
+  :global(.modal-overlay::-webkit-scrollbar) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 5px;
+  }
+
+  :global(.modal-overlay::-webkit-scrollbar-track) {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  :global(.modal-overlay::-webkit-scrollbar-thumb) {
+    background: var(--primary-color);
+    border-radius: 5px;
+  }
+
+  :global(.modal-overlay::-webkit-scrollbar-thumb:hover) {
+    background: rgba(255, 255, 255, 0.093);
   }
 
   :global(.modal-container) {
@@ -173,12 +192,29 @@ try {
     border-radius: 1rem;
     width: 100%;
     max-width: 900px;
-    max-height: 80vh;
+    max-height: 90vh;
     overflow-y: auto;
     position: relative;
     animation: slideUp 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 2rem;
+  }
+
+  :global(.modal-container::-webkit-scrollbar) {
+    width: 8px;
+  }
+
+  :global(.modal-container::-webkit-scrollbar-track) {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+  }
+
+  :global(.modal-container::-webkit-scrollbar-thumb) {
+    background: var(--primary-color);
+    border-radius: 4px;
+  }
+
+  :global(.modal-container::-webkit-scrollbar-thumb:hover) {
+    background: rgba(88, 255, 213, 0.8);
   }
 
   :global(.close-button) {

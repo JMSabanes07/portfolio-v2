@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'preact/hooks'
 import { createPortal } from 'preact/compat'
+import { useEffect, useState } from 'preact/hooks'
 import type { Project } from '../types/projects'
 
 type ProjectModalProps = {
@@ -89,6 +89,17 @@ const ProjectModal = ({ projects }: ProjectModalProps) => {
             </div>
           </div>
 
+                    {selectedProject.go_to && (
+            <a
+              href={selectedProject.go_to}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+            >
+              View Project →
+            </a>
+          )}
+
           {images.length > 0 && (
             <div class="image-gallery">
               <img
@@ -121,16 +132,7 @@ const ProjectModal = ({ projects }: ProjectModalProps) => {
             <p>{selectedProject.long_desc || selectedProject.short_desc}</p>
           </div>
 
-          {selectedProject.go_to && (
-            <a
-              href={selectedProject.go_to}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-            >
-              View Project →
-            </a>
-          )}
+
         </div>
       </div>
     </div>

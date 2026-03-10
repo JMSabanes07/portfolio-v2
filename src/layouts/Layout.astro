@@ -23,6 +23,7 @@ const pathname = Astro.url.pathname
     <title>Juan Manuel Sabanes</title>
   </head>
   <body>
+    <div id="modal-root"></div>
     {pathname === '/' ? <Navigation /> : null}
     <slot />
   </body>

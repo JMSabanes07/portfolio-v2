@@ -57,12 +57,12 @@ const links = [
     display: flex;
     justify-content: space-between;
     justify-self: center;
-    width: 1300px;
+    width: min(1300px, calc(100% - 4rem));
     position: sticky;
     top: 0;
     background: var(--card-color);
     backdrop-filter: blur(20px);
-    margin: 2rem;
+    margin: 2rem auto;
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     z-index: 10;
@@ -80,6 +80,7 @@ const links = [
 
   nav.scrolled {
     width: 100%;
+    margin: 0;
     border-radius: 0;
     padding: 0.5rem 2rem;
   }

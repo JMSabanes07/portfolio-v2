@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Portfolio Website",
+    "slug": "portfolio-website",
+    "short_desc": "Personal portfolio built with Astro and Preact",
+    "long_desc": "A modern portfolio website showcasing projects and skills.",
+    "app_type": "web",
+    "go_to": "https://example.com",
+    "icons": ["astro", "preact"],
+    "year": 2024,
+    "thumbnail": "portfolio-thumb.jpg"
+  },
+  {
+    "name": "Mobile App",
+    "slug": "mobile-app",
+    "short_desc": "Cross-platform mobile application",
+    "long_desc": "A mobile application built with React Native targeting both iOS and Android platforms.",
+    "app_type": "android",
+    "go_to": "https://play.google.com/store/apps/details?id=com.example.mobileapp",
+    "icons": ["react", "javascript"],
+    "year": 2023,
+    "thumbnail": "mobile-app-thumb.jpg"
+  },
+  {
+    "name": "Desktop Application",
+    "slug": "desktop-app",
+    "short_desc": "Native desktop application",
+    "long_desc": "A feature-rich desktop application for productivity tasks.",
+    "app_type": "desktop",
+    "go_to": "https://example.com/desktop-app",
+    "icons": ["typescript", "node"],
+    "year": 2022,
+    "thumbnail": "desktop-app-thumb.jpg"
+  }
+]

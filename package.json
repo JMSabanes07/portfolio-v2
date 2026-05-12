@@ -13,7 +13,7 @@
     "astro": "^5.5.2",
     "astro-icon": "^1.1.5",
     "pocketbase": "^0.25.2",
-    "preact": "^10.26.4"
+    "preact": "^10.29.1"
   },
   "devDependencies": {
     "prettier": "3.5.3",
